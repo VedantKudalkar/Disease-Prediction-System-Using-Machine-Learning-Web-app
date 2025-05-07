@@ -1,0 +1,6 @@
+# Ignore virtual environment and development artifacts
+venv/
+catboost_info/
+__pycache__/
+*.pyc
+.DS_Store

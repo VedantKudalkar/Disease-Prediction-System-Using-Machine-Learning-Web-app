@@ -1,0 +1,434 @@
+/* ===================================================
+   Global Styles & Theme Variables
+   =================================================== */
+   :root {
+    --primary-color: #90caf9;       /* Light Blue */
+    --secondary-color: #64b5f6;     /* Soft Blue */
+    --accent-color: #42a5f5;        /* Vibrant Blue */
+    --success-color: #66bb6a;       /* Green for success actions */
+    --warning-color: #ffa726;       /* Orange for warning actions */
+    --background-color: #121212;    /* Dark Background */
+    --card-background: #1e1e1e;     /* Card Background */
+    --text-color: #ffffff;          /* Light Text */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --animation-duration: 0.3s;
+    --nav-height: 70px;
+  }
+  
+  
+  /* Give each section a top margin when scrolled into view */
+  section {
+    scroll-margin-top: calc(var(--nav-height) + 20px);
+  }
+  
+  /* ===================================================
+     Global Reset & Base Styling
+     =================================================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* ===================================================
+     Navigation Bar
+     =================================================== */
+  .navbar {
+    background: #1e1e1e;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 1s ease;
+  }
+  
+  .navbar:hover {
+    background: var(--card-background);
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color var(--animation-duration), transform var(--animation-duration);
+    position: relative;
+  }
+  
+  .nav-menu a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+  }
+  
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--secondary-color);
+    transition: width 0.3s;
+  }
+  
+  .nav-menu a:hover::after {
+    width: 100%;
+  }
+  
+  /* ===================================================
+     Section Headings
+     =================================================== */
+  .section-heading-wrapper {
+    margin-top: calc(var(--nav-height) + 20px);
+    text-align: center;
+  }
+  
+  .section-heading {
+    font-size: 2.2rem;
+    margin: 2rem 0 1rem 0;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: bounceIn 0.8s ease-out;
+  }
+  
+  /* Bounce In Animation for Headings */
+  @keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+  
+  /* ===================================================
+     Hero Section (Blue Strip with Animations)
+     =================================================== */
+  .hero {
+    padding-top: calc(var(--nav-height) + 40px);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    text-align: center;
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    padding: 3rem 1rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    animation: textPop 1s ease-out;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+    animation: textSlide 1s ease-out;
+  }
+  
+  /* Animations for Hero Text */
+  @keyframes textPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes textSlide {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* ===================================================
+     About Section (Interactive Cards Using Icons)
+     =================================================== */
+  .about-section {
+    background: var(--card-background);
+    border-radius: 1rem;
+    padding: 2rem 1rem 3rem 1rem;
+    box-shadow: 0 4px 6px #42a5f5;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+  }
+  
+  .about-container {
+    text-align: center;
+  }
+  
+  .about-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .about-card {
+    background: var(--background-color);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px #42a5f5;
+    width: 300px;
+    transition: transform var(--animation-duration);
+    padding: 1.5rem 1rem;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* About Card Icon Styling */
+  .about-card-icon {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+  }
+  
+  .about-card-title {
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+  
+  .about-card-text {
+    font-size: 0.9rem;
+    padding: 0 1rem 1rem 1rem;
+  }
+  
+  /* ===================================================
+     Card Components & Input Fields
+     =================================================== */
+  .card {
+    background: var(--card-background);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px #42a5f5;
+    margin: 1rem auto;
+    max-width: 800px;
+    transition: transform var(--animation-duration);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .input-group {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  input[type="number"],
+  input[type="text"] {
+    width: 90%;
+    padding: 0.8rem;
+    border: 2px solid #333;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    background: var(--card-background);
+    color: var(--text-color);
+    transition: border-color var(--animation-duration);
+  }
+  
+  input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+  }
+  
+  .symptom-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  /* ===================================================
+     Button Styles (Interactive & Centered)
+     =================================================== */
+  .btn {
+    display: block;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+    margin: 1rem auto;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* Primary Button (e.g., Continue, Analyze Symptoms) */
+  .btn-primary {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    background: var(--accent-color);
+    box-shadow: 0 6px 8px var(--shadow-color);
+  }
+  
+  /* Secondary Button (e.g., New Diagnosis) */
+  .btn-secondary {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-3px);
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 8px var(--shadow-color);
+  }
+  
+  /* ===================================================
+     WHO Updates Section (Fixed 2x2 Grid)
+     =================================================== */
+  .disease-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 2rem;
+    max-width: 1300px; /* Fixed width for uniformity */
+    margin: 0 auto 3rem auto;
+  }
+  
+  /* Disease Card */
+  .disease-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card-background);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px #42a5f5;
+    transition: transform var(--animation-duration);
+    width: 600px; /* Fixed width */
+    height: 450px; /* Fixed height */
+    overflow: hidden; /* Prevents content overflow */
+  }
+  
+  .disease-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Image Styling */
+  .disease-image {
+    width: 100%;
+    max-width: 250px; /* Fixed width */
+    height: 150px; /* Fixed height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Content Alignment */
+  .disease-content {
+    text-align: center;
+    flex-grow: 1; /* Ensures proper spacing */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Wikipedia Link Styling */
+  .wikipedia-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .wikipedia-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* ===================================================
+     Input Validation Styles
+     =================================================== */
+  .invalid {
+    border-color: #ff4444 !important;
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+  }
+  
+  .invalid::placeholder {
+    color: #ff4444;
+    opacity: 0.8;
+  }
+  
+  .error-message {
+    color: #ff4444;
+    margin: 0.5rem 0;
+    display: none;
+  }
+  
+  /* ===================================================
+     Responsive Styles
+     =================================================== */
+  @media (max-width: 768px) {
+    .nav-menu {
+      gap: 1rem;
+    }
+    
+    .hero-title {
+      font-size: 1.8rem;
+    }
+    
+    .about-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .disease-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  

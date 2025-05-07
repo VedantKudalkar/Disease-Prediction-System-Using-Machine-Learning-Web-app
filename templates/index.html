@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🩺 Disease Prediction System</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">MedPredict</a>
+      <ul class="nav-menu">
+        <!-- Note: the href now targets the section headings that include an offset -->
+        <li><a href="#about-heading" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="#prediction-heading" class="nav-link"><i class="fas fa-diagnoses"></i> Prediction</a></li>
+        <li><a href="#who-heading" class="nav-link"><i class="fas fa-globe"></i> WHO Updates</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">DISEASE PREDICTION SYSTEM</h1>
+      <p class="hero-subtitle">Advanced AI-powered health diagnostics at your fingertips</p>
+    </div>
+  </section>
+
+  <!-- Section Heading for About -->
+  <section class="section-heading-wrapper" id="about-heading">
+    <h2 class="section-heading">About Our System</h2>
+  </section>
+  <!-- About Section as Interactive Cards Using Icons -->
+  <section id="about" class="section about-section">
+    <div class="container about-container">
+      <p class="about-intro">
+        Discover how our advanced system uses state-of-the-art technology to analyze your symptoms and provide accurate disease predictions.
+      </p>
+      <div class="about-cards">
+        <div class="about-card card">
+          <i class="fas fa-robot about-card-icon"></i>
+          <h3 class="about-card-title">AI-Powered Analysis</h3>
+          <p class="about-card-text">
+            Our system leverages cutting-edge machine learning algorithms trained on extensive medical datasets to identify and correlate complex symptom patterns with known disease profiles.
+          </p>
+        </div>
+        <div class="about-card card">
+          <i class="fas fa-lock about-card-icon"></i>
+          <h3 class="about-card-title">Secure & Private</h3>
+          <p class="about-card-text">
+            Patient privacy is our top priority. All data is encrypted and processed securely so that your personal health information remains confidential.
+          </p>
+        </div>
+        <div class="about-card card">
+          <i class="fas fa-database about-card-icon"></i>
+          <h3 class="about-card-title">Extensive Medical Database</h3>
+          <p class="about-card-text">
+            We continuously update our database with the latest research and guidelines to provide you with the most current and reliable diagnostic information.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Heading for Prediction -->
+  <section class="section-heading-wrapper" id="prediction-heading">
+    <h2 class="section-heading">Symptom Analysis</h2>
+  </section>
+  <!-- Prediction Section -->
+  <section id="prediction" class="section prediction-section">
+    <div class="container">
+      <div class="prediction-card card">
+        <div class="input-group">
+          <label for="num-symptoms">Number of Symptoms Experienced:</label>
+          <input type="number" id="num-symptoms" min="1" placeholder="Enter number (1-10)" />
+          <button id="generate-symptoms" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Continue
+          </button>
+        </div>
+        <form id="symptom-form" style="display: none;">
+          <div id="symptom-inputs" class="symptom-container"></div>
+          <div class="error-message" id="form-error"></div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-stethoscope"></i> Analyze Symptoms
+          </button>
+        </form>
+        <div id="result-container" class="result-card card" style="display: none;">
+          <div id="result"></div>
+          <button id="start-over" class="btn btn-secondary">
+            <i class="fas fa-redo"></i> New Diagnosis
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Heading for WHO Updates -->
+  <section class="section-heading-wrapper" id="who-heading">
+    <h2 class="section-heading">WHO Pandemic Information</h2>
+  </section>
+  <!-- WHO Updates Section (2x2 Grid) -->
+  <section id="who" class="section who-section">
+    <div class="container">
+      <div id="disease-container" class="disease-list"></div>
+    </div>
+  </section>
+
+  <!-- Main JS -->
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
