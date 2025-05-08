@@ -47,13 +47,7 @@ The Disease Prediction App is designed to assist users in predicting potential d
  HEAD
 - **Frontend**: [HTML, CSS, JS]
 - **Backend**: [Flask, Python]
-- **Machine Learning**: [Scikit-learn, Random Forest, Linear Regression]
-
-- **Frontend**: [React/Angular/Other Framework]
-- **Backend**: [Node.js/Django/Flask/Other Framework]
-- **Machine Learning**: [TensorFlow/Scikit-learn/Other Library]
-cdeed5f (Update README)
-- **Database**: [MySQL/PostgreSQL/MongoDB]
+- **Machine Learning**: [Pandas, Numpy, Seaborn, Scikit-learn, Random Forest, Linear Regression, CatBoost, MLP Classifier]
 
 ## Contributing
 Contributions are welcome! Please follow these steps:
